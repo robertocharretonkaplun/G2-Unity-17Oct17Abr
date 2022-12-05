@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 // Clase esta encargada de poder comunicar y encapsular la informacion de un script
 public class DummyTesting : MonoBehaviour
@@ -14,17 +15,45 @@ public class DummyTesting : MonoBehaviour
   public char letras = 'a';
   public double Contraseña = 123456789;
   public string nombre = "Roberto";
-
+  public string item;
   public bool IsInUpdate = true;
   public bool IsInFixedUpdate = true;
   public bool IsInLateUpdate = true;
   // VARIABLES NATIVAS DE UNITY
   public Vector3 Posicion;
-
-  
+  public int vida = 10;
+  public TMP_Text contador;
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    Debug.Log(name +  " collide with: " + collision.gameObject.name);
+    //Debug.Log(name + " collide with: " + collision.gameObject.name);
+
+    if (collision.gameObject.CompareTag("Obstacle"))
+    {
+      if (vida <= 0)
+      {
+        Debug.Log("Game Over");
+        return;
+      }
+      Debug.Log(name + " collide with: " + collision.gameObject.name);
+      vida = vida - 1;
+      Debug.Log("Vida Actual: " + vida.ToString());
+    }
+
+    if (collision.gameObject.CompareTag("SafeZone"))
+    {
+      vida = vida + collision.gameObject.GetComponent<SafeZone>().healthPoints;
+    }
+    contador.text = vida.ToString();
+
+
+  }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    if (collision.gameObject.CompareTag("SafeArea"))
+    {
+      item = collision.gameObject.transform.parent.gameObject.GetComponent<SafeZone>().Item;
+    }
   }
 }
