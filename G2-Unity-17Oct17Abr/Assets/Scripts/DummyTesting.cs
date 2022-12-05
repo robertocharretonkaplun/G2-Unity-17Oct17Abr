@@ -15,7 +15,7 @@ public class DummyTesting : MonoBehaviour
   public char letras = 'a';
   public double Contraseña = 123456789;
   public string nombre = "Roberto";
-  public string item;
+  public string Inventario;
   public bool IsInUpdate = true;
   public bool IsInFixedUpdate = true;
   public bool IsInLateUpdate = true;
@@ -43,6 +43,7 @@ public class DummyTesting : MonoBehaviour
     if (collision.gameObject.CompareTag("SafeZone"))
     {
       vida = vida + collision.gameObject.GetComponent<SafeZone>().healthPoints;
+      
     }
     contador.text = vida.ToString();
 
@@ -53,7 +54,7 @@ public class DummyTesting : MonoBehaviour
   {
     if (collision.gameObject.CompareTag("SafeArea"))
     {
-      item = collision.gameObject.transform.parent.gameObject.GetComponent<SafeZone>().Item;
+      Inventario = collision.gameObject.transform.parent.gameObject.GetComponent<SafeZone>().Items[2];
     }
   }
 }
