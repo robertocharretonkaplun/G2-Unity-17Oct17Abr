@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - SafeArea
   - SafeZone
+  - Intraction
   layers:
   - Default
   - TransparentFX
