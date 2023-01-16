@@ -10,6 +10,7 @@ public class TipInfo : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    // Este es el ejemplo de sobre escritura de un archivo
     TextUI = GetComponent<TMP_Text>();
     TextUI.alignment = TextAlignmentOptions.Center;
     TextUI.alignment = TextAlignmentOptions.Baseline;
