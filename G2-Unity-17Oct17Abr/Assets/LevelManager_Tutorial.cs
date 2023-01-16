@@ -5,7 +5,15 @@ using UnityEngine;
 public class LevelManager_Tutorial : MonoBehaviour
 {
   public static LevelManager_Tutorial instance;
+
+  /// <summary>
+  /// Este objeto es la ventana de interaccion.
+  /// </summary>
   public GameObject InteractionScreen;
+
+  /// <summary>
+  /// Esta variable esta encargada de activar o desactivar la ventana de interaccion.
+  /// </summary>
   public bool IsPlayerInteracting;
 
   private void Awake()
@@ -32,5 +40,10 @@ public class LevelManager_Tutorial : MonoBehaviour
 
     InteractionScreen.SetActive(IsPlayerInteracting);
 
+  }
+
+  public void CloseInteractingWindow()
+  {
+    IsPlayerInteracting = false;
   }
 }
