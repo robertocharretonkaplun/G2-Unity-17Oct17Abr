@@ -27,6 +27,8 @@ public class Store : MonoBehaviour
     {
       // Si el jugador esta cerca de nosotros activaremos nuesta ventana
       IsPlayerNear = true;
+      var StoreAmount = LevelManager_Tutorial.instance.StoreAmount - 1;
+      Debug.Log("Puedes consultar en las otras " + StoreAmount.ToString() + " tiendas");
     }
   }
 

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
   /// </summary>
   public Transform MovePoint;
 
+  public int Health = 100;
 
   // Start is called before the first frame update
   void Start()
