@@ -7,10 +7,13 @@ public class Store : MonoBehaviour
   public GameObject ObjectText;
 
   public bool IsPlayerNear = false;
+
+  public string TextInput;
   // Start is called before the first frame update
   void Start()
   {
-    ObjectText.GetComponent<TMP_Text>().text = "Store (Press 'E' to interact)";
+    //ObjectText.GetComponent<TMP_Text>().text = "Store (Press 'E' to interact)";
+    ObjectText.GetComponent<TMP_Text>().text = TextInput;
   }
 
   // Update is called once per frame
