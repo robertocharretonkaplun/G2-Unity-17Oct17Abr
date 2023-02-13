@@ -13,7 +13,7 @@ public class Store : MonoBehaviour
   void Start()
   {
     //ObjectText.GetComponent<TMP_Text>().text = "Store (Press 'E' to interact)";
-    ObjectText.transform.GetChild(1).GetComponent<TMP_Text>().text = TextInput;
+    //ObjectText.transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = TextInput;
   }
 
   // Update is called once per frame
