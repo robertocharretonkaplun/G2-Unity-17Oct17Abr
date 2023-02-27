@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class Store : MonoBehaviour
+public class InteractObj : MonoBehaviour
 {
   public GameObject ObjectText;
-
-  public bool IsPlayerNear = false;
-
   public string TextInput;
+  public bool IsPlayerNear = false;
+  public bool IsInteracting = false;
+
   // Start is called before the first frame update
   void Start()
   {
@@ -19,8 +19,16 @@ public class Store : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-
     ObjectText.SetActive(IsPlayerNear);
+
+    // Check if the player is interacting with the object
+    if (IsPlayerNear == true)
+    {
+      if (Input.GetKey(KeyCode.E))
+      {
+        IsInteracting = true;
+      }
+    }
   }
 
   private void OnTriggerEnter2D(Collider2D collision)
@@ -30,8 +38,6 @@ public class Store : MonoBehaviour
     {
       // Si el jugador esta cerca de nosotros activaremos nuesta ventana
       IsPlayerNear = true;
-      var StoreAmount = LevelManager_Tutorial.instance.StoreAmount - 1;
-      Debug.Log("Puedes consultar en las otras " + StoreAmount.ToString() + " tiendas");
     }
   }
 
@@ -42,7 +48,6 @@ public class Store : MonoBehaviour
     {
       // Si el jugador esta lejos de nosotros desactivaremos nuesta ventana
       IsPlayerNear = false;
-      LevelManager_Tutorial.instance.IsPlayerInteracting = false;
     }
   }
 }
