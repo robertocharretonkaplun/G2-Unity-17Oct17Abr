@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6309599118117444222}
   - component: {fileID: 6309599118117444193}
   - component: {fileID: 1127189280}
-  - component: {fileID: 1127189277}
+  - component: {fileID: 3166958131883084277}
   m_Layer: 0
   m_Name: PF Village Props - Campfire
   m_TagString: Untagged
@@ -116,7 +116,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.90625, y: 0.71875}
   m_EdgeRadius: 0
---- !u!114 &1127189277
+--- !u!114 &3166958131883084277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,12 +125,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6309599118117444192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd1abf1295433da4cb851848cc2f2f48, type: 3}
+  m_Script: {fileID: 11500000, guid: a5a99dee960820a4f9b3c84a1b293c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectText: {fileID: 1844875058}
+  TextInput: 'Press ''E'' to Rest '
   IsPlayerNear: 0
-  TextInput: 'Press ''e'' to Rest '
+  IsInteracting: 0
 --- !u!1 &6310798581986732171
 GameObject:
   m_ObjectHideFlags: 0

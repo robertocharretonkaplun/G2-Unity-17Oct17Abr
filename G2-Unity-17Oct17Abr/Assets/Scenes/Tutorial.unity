@@ -2600,6 +2600,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1931305793}
     m_Modifications:
+    - target: {fileID: 3166958131883084277, guid: e8bae36b607017047ace9061609051d9, type: 3}
+      propertyPath: FadeIn
+      value: 
+      objectReference: {fileID: 232653153}
+    - target: {fileID: 3166958131883084277, guid: e8bae36b607017047ace9061609051d9, type: 3}
+      propertyPath: FadeOut
+      value: 
+      objectReference: {fileID: 70422722}
     - target: {fileID: 6309599118117444192, guid: e8bae36b607017047ace9061609051d9, type: 3}
       propertyPath: m_Name
       value: PF Village Props - Campfire
@@ -3987,7 +3995,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1249970979}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

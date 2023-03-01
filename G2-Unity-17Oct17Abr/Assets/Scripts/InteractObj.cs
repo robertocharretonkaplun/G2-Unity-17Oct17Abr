@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class InteractObj : MonoBehaviour
 {
+  [Header("Interact Configuration")]
   public GameObject ObjectText;
   public string TextInput;
   public bool IsPlayerNear = false;
@@ -19,10 +20,15 @@ public class InteractObj : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    
+  }
+
+  private void FixedUpdate()
+  {
     ObjectText.SetActive(IsPlayerNear);
 
     // Check if the player is interacting with the object
-    if (IsPlayerNear == true)
+    if (IsPlayerNear)
     {
       if (Input.GetKey(KeyCode.E))
       {
@@ -40,7 +46,14 @@ public class InteractObj : MonoBehaviour
       IsPlayerNear = true;
     }
   }
-
+  private void OnCollisionStay2D(Collision2D collision)
+  {
+    if (collision.gameObject.CompareTag("Player"))
+    {
+      // Si el jugador esta cerca de nosotros activaremos nuesta ventana
+      IsPlayerNear = true;
+    }
+  }
   private void OnTriggerExit2D(Collider2D collision)
   {
     // Detectectamos si el jugador esta saliendo de la zona de deteccion de nosotros
