@@ -9,7 +9,7 @@ public class InteractObj : MonoBehaviour
   public string TextInput;
   public bool IsPlayerNear = false;
   public bool IsInteracting = false;
-
+  public GameObject PlayerRef;
   // Start is called before the first frame update
   void Start()
   {
@@ -34,6 +34,10 @@ public class InteractObj : MonoBehaviour
       {
         IsInteracting = true;
       }
+      if (Input.GetKey(KeyCode.Escape))
+      {
+        IsInteracting = false;
+      }
     }
   }
 
@@ -44,6 +48,7 @@ public class InteractObj : MonoBehaviour
     {
       // Si el jugador esta cerca de nosotros activaremos nuesta ventana
       IsPlayerNear = true;
+      PlayerRef = collision.gameObject;
     }
   }
   private void OnCollisionStay2D(Collision2D collision)
@@ -52,6 +57,7 @@ public class InteractObj : MonoBehaviour
     {
       // Si el jugador esta cerca de nosotros activaremos nuesta ventana
       IsPlayerNear = true;
+      PlayerRef = collision.gameObject;
     }
   }
   private void OnTriggerExit2D(Collider2D collision)
@@ -61,6 +67,7 @@ public class InteractObj : MonoBehaviour
     {
       // Si el jugador esta lejos de nosotros desactivaremos nuesta ventana
       IsPlayerNear = false;
+      PlayerRef = collision.gameObject;
     }
   }
 }
