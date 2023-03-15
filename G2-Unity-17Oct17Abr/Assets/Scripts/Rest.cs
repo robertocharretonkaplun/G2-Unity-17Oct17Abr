@@ -30,6 +30,7 @@ public class Rest : InteractObj
     FadeIn.SetActive(true);
     // Restore Health
     RestorePlayerAttributes();
+    
     yield return new WaitForSeconds(RestingTime);
     // Turn normal the screen
     FadeIn.SetActive(false);
@@ -43,5 +44,7 @@ public class Rest : InteractObj
     {
       PlayerRef.GetComponent<PlayerAttributes>().health = 100;
     }
+
+
   }
 }

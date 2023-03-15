@@ -10,6 +10,7 @@ public class InteractObj : MonoBehaviour
   public bool IsPlayerNear = false;
   public bool IsInteracting = false;
   public GameObject PlayerRef;
+  public float AreaDetection = 1.5f;
   // Start is called before the first frame update
   void Start()
   {
@@ -20,7 +21,7 @@ public class InteractObj : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    
+
   }
 
   private void FixedUpdate()
@@ -69,5 +70,22 @@ public class InteractObj : MonoBehaviour
       IsPlayerNear = false;
       PlayerRef = collision.gameObject;
     }
+  }
+
+  public bool IsPlayerNearToObject()
+  {
+    if (Vector3.Distance(FindObjectOfType<PlayerAttributes>().transform.position, transform.position) <= AreaDetection)
+    {
+      IsPlayerNear = true;
+      return true;
+    }
+    IsPlayerNear = false;
+    return false;
+  }
+
+  private void OnDrawGizmosSelected()
+  {
+    Gizmos.color = Color.cyan;
+    Gizmos.DrawWireSphere(transform.position, AreaDetection);
   }
 }
