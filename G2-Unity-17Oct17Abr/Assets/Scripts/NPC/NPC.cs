@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPC : InteractObj
 {
   public GameObject DropItem;
+  public bool canDropItem = false;
   // Start is called before the first frame update
   void Start()
   {
@@ -14,9 +15,14 @@ public class NPC : InteractObj
   IEnumerator DropItemToPlayer()
   {
     // Spawn Object
-    Instantiate(DropItem, transform.position - new Vector3(1, 0, 0), Quaternion.identity);
-    yield return new WaitForSeconds(.5f);
+    canDropItem = true;
+    yield return new WaitForSeconds(.1f);
     // Spawn Object
+    if (canDropItem)
+    {
+      Instantiate(DropItem, transform.position - new Vector3(1, 0, 0), Quaternion.identity);
+      canDropItem = false;
+    }
   }
 
   // Update is called once per frame
