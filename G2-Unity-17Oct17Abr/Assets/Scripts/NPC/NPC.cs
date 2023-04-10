@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class NPC : InteractObj
 {
+  public GameObject DropItem;
   // Start is called before the first frame update
   void Start()
   {
 
+  }
+
+  IEnumerator DropItemToPlayer()
+  {
+    // Spawn Object
+    Instantiate(DropItem, transform.position - new Vector3(1, 0, 0), Quaternion.identity);
+    yield return new WaitForSeconds(.5f);
+    // Spawn Object
   }
 
   // Update is called once per frame
@@ -24,6 +33,12 @@ public class NPC : InteractObj
     else
     {
       DialogManager.instance.RestartDialogs();
+    }
+
+    if (DialogManager.instance.currentLineIndex == DialogManager.instance.Dialogs.Count - 1)
+    {
+      StartCoroutine(DropItemToPlayer());
+      //Instantiate(DropItem, transform.position - new Vector3(1, 0, 0), Quaternion.identity);
     }
   }
 }

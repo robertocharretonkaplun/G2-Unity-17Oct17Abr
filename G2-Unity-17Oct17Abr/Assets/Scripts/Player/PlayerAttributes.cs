@@ -6,8 +6,10 @@ public class PlayerAttributes : MonoBehaviour
 {
   public int health = 50;
   public int Esmeraldas = 100;
-  public List<string> Inventory;
+  public int Elixir = 100;
+  public List<GameObject> Inventory;
   public ProgressBar HealthBar;
+  public ProgressBar ElixirBar;
 
   // Start is called before the first frame update
   void Start()
@@ -19,5 +21,6 @@ public class PlayerAttributes : MonoBehaviour
   void Update()
   {
     HealthBar.current = health;
+    ElixirBar.current = Elixir;
   }
 }
