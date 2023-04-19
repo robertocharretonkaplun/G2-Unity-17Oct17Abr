@@ -22,6 +22,8 @@ public class LevelManager_Tutorial : MonoBehaviour
   /// </summary>
   public bool IsPlayerInteracting;
 
+  public bool LoadNextZone = false;
+
   private void Awake()
   {
     if (instance != null)

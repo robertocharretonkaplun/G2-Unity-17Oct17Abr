@@ -6,6 +6,8 @@ public class NPC : InteractObj
 {
   public GameObject DropItem;
   public bool canDropItem = false;
+  public int maxDrops = 1;
+  private int currentDrops = 0;
   // Start is called before the first frame update
   void Start()
   {
@@ -15,12 +17,13 @@ public class NPC : InteractObj
   IEnumerator DropItemToPlayer()
   {
     // Spawn Object
-    canDropItem = true;
+    //canDropItem = true;
     yield return new WaitForSeconds(.1f);
     // Spawn Object
-    if (canDropItem)
+    if (canDropItem == true && currentDrops < maxDrops)
     {
       Instantiate(DropItem, transform.position - new Vector3(1, 0, 0), Quaternion.identity);
+      currentDrops++;
       canDropItem = false;
     }
   }
@@ -41,10 +44,12 @@ public class NPC : InteractObj
       DialogManager.instance.RestartDialogs();
     }
 
+    // Check if dialogs end
     if (DialogManager.instance.currentLineIndex == DialogManager.instance.Dialogs.Count - 1)
     {
-      StartCoroutine(DropItemToPlayer());
-      //Instantiate(DropItem, transform.position - new Vector3(1, 0, 0), Quaternion.identity);
+      canDropItem = true;
     }
+    // Drop Item
+    StartCoroutine(DropItemToPlayer());
   }
 }
