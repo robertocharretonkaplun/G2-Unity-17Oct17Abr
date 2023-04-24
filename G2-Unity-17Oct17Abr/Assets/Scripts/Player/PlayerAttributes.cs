@@ -20,7 +20,11 @@ public class PlayerAttributes : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    HealthBar.current = health;
-    ElixirBar.current = Elixir;
+    if (HealthBar != null)
+    {
+
+      HealthBar.current = health;
+      ElixirBar.current = Elixir;
+    }
   }
 }
