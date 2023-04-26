@@ -1130,6 +1130,7 @@ MonoBehaviour:
   PropsObj: {fileID: 103017593}
   Props: []
   hasOrderInLayer: 1
+  LayerIndex: {x: 2, y: 6}
   OrderInLayer: 0
 --- !u!4 &1097845047 stripped
 Transform:
@@ -1164,6 +1165,7 @@ MonoBehaviour:
   PropsObj: {fileID: 103017593}
   Props: []
   hasOrderInLayer: 1
+  LayerIndex: {x: 2, y: 7}
   OrderInLayer: 0
 --- !u!114 &1097845049
 MonoBehaviour:
@@ -1191,7 +1193,8 @@ MonoBehaviour:
   PropsObj: {fileID: 103017593}
   Props: []
   hasOrderInLayer: 0
-  OrderInLayer: 3
+  LayerIndex: {x: 0, y: 0}
+  OrderInLayer: 6
 --- !u!1 &1736253938
 GameObject:
   m_ObjectHideFlags: 0
